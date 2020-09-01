@@ -1,12 +1,54 @@
 <template>
-<div>
-    <div class="topnav">
-        <div class="logo"></div>
-        <div class="menu"></div>
-    </div>
+<div class="doc-container">
+    <Topnav />
     <div class="content">
-        <aside>边栏</aside>
+        <aside>
+            <h2>组件列表</h2>
+            <ol>
+                <li>
+                    <router-link to="/Doc/swich">swich组件</router-link>
+                </li>
+                <li>
+                    <router-link to="/Doc/button">button组件</router-link>
+                </li>
+                <li>
+                    <router-link to="/Doc/dialog">dialog组件</router-link>
+                </li>
+                <li>
+                    <router-link to="/Doc/tabs">tabs组件</router-link>
+                </li>
+            </ol>
+        </aside>
         <main>主内容</main>
     </div>
 </div>
 </template>
+
+<script lang="ts">
+import Topnav from '../components/Topnav.vue'
+export default {
+    components: {
+        Topnav
+    }
+}
+</script>
+
+<style lang="scss">
+.doc-container {
+    position: relative;
+}
+
+.content {
+    width: 200px;
+    background: #A9D5E7;
+    color: #000;
+
+    li {
+        padding: 10px 0px;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+</style>
