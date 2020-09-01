@@ -53,10 +53,7 @@ export default {
     width: 200px;
     background: #A9D5E7;
     color: #000;
-
-    aside {
-        padding-top: 70px;
-    }
+    padding-top: 50px;
 
     li {
         padding: 10px 0px;
@@ -69,6 +66,7 @@ export default {
 
 @media(max-width:500px) {
     .doc-content {
+        padding-top: 10px;
         position: fixed;
         top: 45px;
         left: 0;

@@ -4,8 +4,10 @@
 
 <script lang="ts">
 import {
+    watch,
     ref,
-    provide
+    provide,
+    reactive
 } from 'vue'
 export default {
     name: 'App',
