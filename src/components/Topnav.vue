@@ -1,6 +1,6 @@
 <template>
 <div class="topnav">
-    <div class="logo">LOgo</div>
+    <div class="logo">Logo</div>
     <div class="menu">
         <div class="menu-item">menu1</div>
         <div class="menu-item">menu2</div>
@@ -17,12 +17,15 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
 
     .menu {
         display: flex;
 
         .menu-item {
-            padding-left: 10px;
+            padding-right: 20px;
         }
     }
 }

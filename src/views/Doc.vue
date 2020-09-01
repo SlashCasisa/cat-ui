@@ -1,7 +1,7 @@
 <template>
 <div class="doc-container">
     <Topnav />
-    <div class="content">
+    <div class="doc-content">
         <aside>
             <h2>组件列表</h2>
             <ol>
@@ -38,10 +38,17 @@ export default {
     position: relative;
 }
 
-.content {
+.doc-content {
     width: 200px;
     background: #A9D5E7;
     color: #000;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    aside {
+        margin-top: 70px;
+    }
 
     li {
         padding: 10px 0px;
