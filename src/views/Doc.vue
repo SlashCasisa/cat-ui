@@ -35,7 +35,7 @@ export default {
         Topnav
     },
     setup() {
-        const menuVisible = inject < Ref < boolean >> ('xxx')
+        const menuVisible = inject < Ref < boolean >> ('refmenuVisible')
         console.log('doc this is menuVisible:', menuVisible.value)
         return {
             menuVisible
@@ -53,12 +53,9 @@ export default {
     width: 200px;
     background: #A9D5E7;
     color: #000;
-    position: fixed;
-    top: 45px;
-    left: 0;
 
     aside {
-        margin-top: 70px;
+        padding-top: 70px;
     }
 
     li {
@@ -67,6 +64,14 @@ export default {
         &:hover {
             cursor: pointer;
         }
+    }
+}
+
+@media(max-width:500px) {
+    .doc-content {
+        position: fixed;
+        top: 45px;
+        left: 0;
     }
 }
 </style>

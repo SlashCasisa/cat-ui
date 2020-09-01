@@ -1,7 +1,7 @@
 <template>
 <div class="topnav">
-    <div class="toggleAside" />
-    <div class="logo" @click="toggleComponentMenu">Logo</div>
+    <div class="toggleAside" @click="toggleComponentMenu" />
+    <div class="logo">Logo</div>
     <div class="menu">
         <div class="menu-item">menu1</div>
         <div class="menu-item">menu2</div>
@@ -16,7 +16,7 @@ import {
 } from 'vue'
 export default {
     setup() {
-        const menuVisible = inject < Ref < boolean >> ('xxx')
+        const menuVisible = inject < Ref < boolean >> ('refmenuVisible')
         const toggleComponentMenu = () => {
             menuVisible.value = !menuVisible.value
         }
@@ -39,6 +39,7 @@ export default {
     position: fixed;
     width: 100%;
     z-index: 100;
+    height: 25px;
 
     .logo {
         margin-right: auto;
@@ -64,15 +65,20 @@ export default {
         height: 24px;
         background: red;
         margin-right: 10px;
+        display: none;
     }
 
     @media(max-width:500px) {
-        >.menu {
+        .menu {
             display: none;
         }
 
-        >.logo {
+        .logo {
             margin: 0 auto;
+        }
+
+        .toggleAside {
+            display: block;
         }
     }
 }
