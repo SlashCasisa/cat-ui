@@ -24,6 +24,7 @@ export default {
 <style lang="scss">
 .banner {
     background: lightGreen;
+    padding-top: 50px;
 
     .actions {
         display: flex;

@@ -54,7 +54,7 @@ export default {
     background: #A9D5E7;
     color: #000;
     position: fixed;
-    top: 0;
+    top: 45px;
     left: 0;
 
     aside {
