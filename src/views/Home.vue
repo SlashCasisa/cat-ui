@@ -6,7 +6,7 @@
         <h2>一个基于vue3.0的UI库</h2>
         <p class="actions">
             <a class="actions-item" href="https://github.com/SlashCasisa/gulu-ui">Github</a>
-            <router-link class="actions-item" to="/Doc">开始</router-link>
+            <router-link class="actions-item" to="/doc">开始</router-link>
         </p>
     </div>
 </div>

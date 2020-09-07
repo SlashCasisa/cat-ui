@@ -6,20 +6,22 @@
             <h2>组件列表</h2>
             <ol>
                 <li>
-                    <router-link to="/Doc/swich">swich组件</router-link>
+                    <router-link to="/switch">swich组件</router-link>
                 </li>
                 <li>
-                    <router-link to="/Doc/button">button组件</router-link>
+                    <router-link to="/button">button组件</router-link>
                 </li>
                 <li>
-                    <router-link to="/Doc/dialog">dialog组件</router-link>
+                    <router-link to="/dialog">dialog组件</router-link>
                 </li>
                 <li>
-                    <router-link to="/Doc/tabs">tabs组件</router-link>
+                    <router-link to="/tabs">tabs组件</router-link>
                 </li>
             </ol>
         </aside>
-        <main>主内容</main>
+        <main>
+            <router-view />
+        </main>
     </div>
 </div>
 </template>
@@ -50,10 +52,17 @@ export default {
 }
 
 .doc-content {
-    width: 200px;
-    background: #A9D5E7;
+    display: flex;
     color: #000;
-    padding-top: 50px;
+    padding-top: 46px;
+    height: calc(100vh - 51px);
+
+    aside {
+        background: #A9D5E7;
+        width: 200px;
+        padding-top: 5px;
+        height: 100%;
+    }
 
     li {
         padding: 10px 0px;
@@ -61,6 +70,10 @@ export default {
         &:hover {
             cursor: pointer;
         }
+    }
+
+    main {
+        height: 100%;
     }
 }
 
