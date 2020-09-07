@@ -1,5 +1,6 @@
 import Home from '../views/Home.vue'
 import Doc from '../views/Doc.vue'
+import DocDemo from '../components/DocDemo.vue'
 import SwitchDemo from '../components/SwitchDemo.vue'
 import ButtonDemo from '../components/ButtonDemo.vue'
 import DialogDemo from '../components/DialogDemo.vue'
@@ -12,7 +13,11 @@ const router = createRouter({
     { path: '/', component: Home },
     { path: '/doc',
      component: Doc,
-     children:[{
+     children:[
+    {
+      path:'',
+      component: DocDemo
+    },{
       path:'/switch',
       component: SwitchDemo
     },{
