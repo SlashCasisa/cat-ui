@@ -34,28 +34,28 @@ button {
     background: #ccc;
     border-radius: $h/2;
     position: relative;
-}
 
-span {
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    height: $h2;
-    width: $h2;
-    background: #fff;
-    border-radius: $h2/2;
-    transition: left 250ms;
-}
+    >span {
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        height: $h2;
+        width: $h2;
+        background: #fff;
+        border-radius: $h2/2;
+        transition: left 250ms;
+    }
 
-button.checked {
-    background: blue;
-}
+    &.checked {
+        background: #1890ff;
 
-button.checked>span {
-    left: calc(100% - 20px);
-}
+        >span {
+            left: calc(100% - 20px);
+        }
+    }
 
-button:focus {
-    outline: none;
+    &:focus {
+        outline: none;
+    }
 }
 </style>
