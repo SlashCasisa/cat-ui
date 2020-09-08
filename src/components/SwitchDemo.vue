@@ -1,6 +1,6 @@
 <template>
 <div>
-    <Switch :value="y" @changeSwitch="y=$event" />
+    <Switch v-model:value="y" />
 </div>
 </template>
 
