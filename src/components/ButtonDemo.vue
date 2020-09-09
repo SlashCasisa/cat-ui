@@ -1,7 +1,7 @@
 <template>
 <div>
     <h1>示例1</h1>
-    <Button />
+    <Button @click="onClick" @focus="onClick" @mouseover="onClick" size="small">hello</Button>
 </div>
 </template>
 
@@ -12,7 +12,13 @@ export default {
         Button
     },
     setup() {
-        console.log('enter button')
+        const onClick = () => {
+            console.log('click button')
+        }
+        return {
+            onClick
+        }
+
     }
 }
 </script>
