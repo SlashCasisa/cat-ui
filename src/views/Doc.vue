@@ -1,7 +1,7 @@
 <template>
-<div class="doc-container">
-    <Topnav />
-    <div class="doc-content">
+<div class="layout">
+    <Topnav class="nav" />
+    <div class="content">
         <aside v-if="menuVisible">
             <h2>组件列表</h2>
             <ol>
@@ -47,42 +47,62 @@ export default {
 </script>
 
 <style lang="scss">
-.doc-container {
-    position: relative;
-}
-
-.doc-content {
+.layout {
     display: flex;
-    color: #000;
-    padding-top: 46px;
-    height: calc(100vh - 51px);
+    flex-direction: column;
+    height: 100vh;
 
-    aside {
-        background: #A9D5E7;
-        width: 200px;
-        padding-top: 5px;
-        height: 100%;
+    >.nav {
+        flex-shrink: 0;
     }
 
-    li {
-        padding: 10px 0px;
+    >.content {
+        flex-grow: 1;
+        padding-top: 60px;
+        padding-left: 156px;
 
-        &:hover {
-            cursor: pointer;
+        @media (max-width: 500px) {
+            padding-left: 0;
         }
     }
+}
 
-    main {
-        height: 100%;
+.content {
+    display: flex;
+
+    >aside {
+        flex-shrink: 0;
+    }
+
+    >main {
+        flex-grow: 1;
+        padding: 16px;
+        background: white;
     }
 }
 
-@media(max-width:500px) {
-    .doc-content {
-        padding-top: 10px;
-        position: fixed;
-        top: 45px;
-        left: 0;
+aside {
+    background: lightblue;
+    width: 150px;
+    padding: 16px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 70px;
+    height: 100%;
+
+    >h2 {
+        margin-bottom: 4px;
     }
+
+    >ol {
+        >li {
+            padding: 4px 0;
+        }
+    }
+}
+
+main {
+    overflow: auto;
 }
 </style>

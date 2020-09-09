@@ -31,7 +31,7 @@ export default {
 .topnav {
     border-bottom: 1px solid #ccc;
     background: pink;
-    padding: 10px;
+    padding: 16px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -39,7 +39,7 @@ export default {
     position: fixed;
     width: 100%;
     z-index: 100;
-    height: 25px;
+    // height: 25px;
 
     .logo {
         margin-right: auto;
