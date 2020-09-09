@@ -9,7 +9,17 @@
 <script lang="ts">
 export default {
     inheritAttrs: false, //可以取消默认绑定
+    props: {
+        size: String,
+        disable: Boolean
+    },
     setup(props, context) {
+        console.log({
+            ...props
+        })
+        console.log({
+            ...context.attrs
+        })
         const {
             size,
             ...rest

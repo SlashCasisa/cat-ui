@@ -1,7 +1,7 @@
 <template>
 <div>
     <h1>示例1</h1>
-    <Button @click="onClick" @focus="onClick" @mouseover="onClick" size="small">hello</Button>
+    <Button @click="onClick" @focus="onClick" @mouseover="onClick" disable level="normal" size="small">hello</Button>
 </div>
 </template>
 
