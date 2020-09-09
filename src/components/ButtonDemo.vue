@@ -1,7 +1,11 @@
 <template>
 <div>
     <h1>示例1</h1>
-    <Button @click="onClick" @focus="onClick" @mouseover="onClick" disable level="normal" size="small">hello</Button>
+    <div>
+        <Button theme="button">hello</Button>
+        <Button theme="link">hello</Button>
+        <Button theme="text">hello</Button>
+    </div>
 </div>
 </template>
 

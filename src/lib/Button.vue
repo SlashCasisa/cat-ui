@@ -1,41 +1,56 @@
 <template>
-<div :size="size">
-    <button v-bind="rest">
-        <slot />
-    </button>
-</div>
+<button class="gulu-button" :class="{[`gulu-theme-${theme}`]:theme}">
+    <slot />
+</button>
 </template>
 
 <script lang="ts">
 export default {
-    inheritAttrs: false, //可以取消默认绑定
+    // inheritAttrs: false, //可以取消默认绑定
     props: {
-        size: String,
-        disable: Boolean
-    },
-    setup(props, context) {
-        console.log({
-            ...props
-        })
-        console.log({
-            ...context.attrs
-        })
-        const {
-            size,
-            ...rest
-        } = context.attrs //将属性拆分
-        return {
-            size,
-            rest
+        theme: {
+            type: String,
+            defalut: 'button'
         }
     }
 
 }
 </script>
 
-<style lang="scss" scoped>
-div {
-    border: 1px solid red;
-    width: 100%;
+<style lang="scss">
+$h: 32px;
+$border-color: #d9d9d9;
+$color: #333;
+$blue: #40a9ff;
+$radius: 4px;
+
+.gulu-button {
+    box-sizing: border-box;
+    height: $h;
+    padding: 0 12px;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    background: white;
+    color: $color;
+    border: 1px solid $border-color;
+    border-radius: $radius;
+    box-shadow: 0 1px 0 fade-out(black, 0.95);
+
+    &+& {
+        margin-left: 8px;
+    }
+
+    &:hover,
+    &:focus {
+        outline: none;
+        background: $blue;
+    }
+
+    &::-moz-focus-innner {
+        border: 0;
+    }
 }
 </style>
