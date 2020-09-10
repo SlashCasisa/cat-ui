@@ -1,7 +1,9 @@
 <template>
 <div>
     <Button @click="toggle">toggle</Button>
-    <Dialog v-model:visible="x" :closeOnClickOverlay="false" :ok="f1" :cancel="f2" />
+    <Dialog v-model:visible="x" :closeOnClickOverlay="false" :ok="f1" :cancel="f2" title="netlify">
+        <div>nice to meet you</div>
+    </Dialog>
 </div>
 </template>
 
