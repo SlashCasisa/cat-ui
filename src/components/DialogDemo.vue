@@ -1,5 +1,5 @@
 <template>
-<div>
+<div style="position:relative;z-index:1">
     <Button @click="toggle">toggle</Button>
     <Dialog v-model:visible="x" :closeOnClickOverlay="false" :ok="f1" :cancel="f2" title="netlify">
         <template v-slot:content> <strong>nice to meet you</strong></template>
