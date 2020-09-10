@@ -1,17 +1,32 @@
 <template>
 <div>
-    <Dialog />
+    <Button @click="toggle">toggle</Button>
+    <Dialog :visible="x" />
 </div>
 </template>
 
 <script lang="ts">
 import Dialog from '../lib/Dialog.vue'
+import Button from '../lib/Button.vue'
+import {
+    ref
+} from 'vue'
 export default {
     components: {
-        Dialog
+        Dialog,
+        Button
     },
     setup() {
-        console.log('enter dialog')
+        const x = ref(false)
+        const toggle = () => {
+            x.value = !x.value;
+            console.log(x.value, 'tocheck')
+        }
+
+        return {
+            x,
+            toggle
+        }
     }
 }
 </script>
