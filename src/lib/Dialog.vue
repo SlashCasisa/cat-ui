@@ -3,11 +3,12 @@
     <div class="gulu-dialog-overlay" @click="onClickOverlay"></div>
     <div class="gulu-dialog-wrapper">
         <div class="gulu-dialog">
-            <header>{{title}}
+            <header>
+                <slot name="title" />
                 <span class="gulu-dialog-close" @click="close"></span>
             </header>
             <main>
-                <slot />
+                <slot name="content" />
             </main>
             <footer>
                 <Button @click="ok">OK</Button>
@@ -25,10 +26,10 @@ export default {
         Button
     },
     props: {
-        title: {
-            type: String,
-            defalut: '提示'
-        },
+        // title: {
+        //     type: String,
+        //     defalut: '提示'
+        // },
         visible: {
             type: Boolean,
             defalut: false

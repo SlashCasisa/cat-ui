@@ -2,7 +2,8 @@
 <div>
     <Button @click="toggle">toggle</Button>
     <Dialog v-model:visible="x" :closeOnClickOverlay="false" :ok="f1" :cancel="f2" title="netlify">
-        <div>nice to meet you</div>
+        <template v-slot:content> <strong>nice to meet you</strong></template>
+        <template v-slot:title> <strong>netlify</strong></template>
     </Dialog>
 </div>
 </template>
