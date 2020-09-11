@@ -1,7 +1,7 @@
 <template>
 <div class="gulu-tabs">
     <div class="gulu-tabs-nav" ref="container">
-        <div class="gulu-tabs-nav-item" @click="select(t)" :ref="el => { if (el) navItems[index] = el }" v-for="(t,index) in titles" :key="index" :class="{selected: t===selected}">{{t}}</div>
+        <div class="gulu-tabs-nav-item" @click="select(t)" :ref="el => { if (t===selected) selectedItem = el }" v-for="(t,index) in titles" :key="index" :class="{selected: t===selected}">{{t}}</div>
         <div class="gulu-tabs-nav-indicator" ref="indicator" />
     </div>
     <div class="gulu-tabs-content">
@@ -25,25 +25,25 @@ export default {
         }
     },
     setup(props, context) {
-        const navItems = ref < HTMLDivElement[] > ([])
+        const selectedItem = ref < HTMLDivElement > (null)
+        // const navItems = ref < HTMLDivElement[] > ([])
         const indicator = ref < HTMLDivElement > (null)
         const container = ref < HTMLDivElement > (null)
         const x = () => {
-            const divs = navItems.value
-            const result = divs.filter(div => div.classList.contains('selected'))[0];
+            // const divs = navItems.value
+            // const result = divs.filter(div => div.classList.contains('selected'))[0];
             //find的兼容性不好
             // const result = divs.find(div => div.classList.contains('selected'));
-            console.log(divs, result, 'result###')
             const {
                 width
-            } = result.getBoundingClientRect()
+            } = selectedItem.value.getBoundingClientRect()
             indicator.value.style.width = width + 'px'
             const {
                 left: left1
             } = container.value.getBoundingClientRect()
             const {
                 left: left2
-            } = result.getBoundingClientRect()
+            } = selectedItem.value.getBoundingClientRect()
             const left = left2 - left1
             indicator.value.style.left = left + 'px'
         }
@@ -68,7 +68,8 @@ export default {
         return {
             defaults,
             titles,
-            navItems,
+            // navItems,
+            selectedItem,
             select,
             indicator,
             container
