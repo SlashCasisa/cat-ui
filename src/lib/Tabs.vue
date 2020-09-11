@@ -1,8 +1,11 @@
 <template>
-<div>
-    Tabs
-    <div v-for="(t,index) in titles" :key="index">{{t}}</div>
-    <component :is="item" v-for="(item,index) in defaults" :key="index" />
+<div class="gulu-tabs">
+    <div class="gulu-tabs-nav" ref="container">
+        <div v-for="(t,index) in titles" :key="index">{{t}}</div>
+    </div>
+    <div class="gulu-tabs-content">
+        <component :is="item" v-for="(item,index) in defaults" :key="index" />
+    </div>
 </div>
 </template>
 
@@ -20,12 +23,57 @@ export default {
                 throw new Error('Tabs必须是Tab')
             }
         })
-        const titles = defaults.forEach((tag) => {
+        const titles = defaults.map((tag) => {
             return tag.props.title
         })
+        console.log(titles, 'title%%%')
         return {
-            defaults
+            defaults,
+            titles
         }
     }
 }
 </script>
+
+<style lang="scss">
+$blue: #40a9ff;
+$color: #333;
+$border-color: #d9d9d9;
+
+.gulu-tabs {
+    &-nav {
+        display: flex;
+        color: $color;
+        border-bottom: 1px solid $border-color;
+        position: relative;
+
+        &-item {
+            padding: 8px 0;
+            margin: 0 16px;
+            cursor: pointer;
+
+            &:first-child {
+                margin-left: 0;
+            }
+
+            &.selected {
+                color: $blue;
+            }
+        }
+
+        &-indicator {
+            position: absolute;
+            height: 3px;
+            background: $blue;
+            left: 0;
+            bottom: -1px;
+            width: 100px;
+            transition: all 250ms;
+        }
+    }
+
+    &-content {
+        padding: 8px 0;
+    }
+}
+</style>
