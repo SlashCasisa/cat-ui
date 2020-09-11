@@ -1,16 +1,22 @@
 <template>
 <div class="gulu-tabs">
     <div class="gulu-tabs-nav" ref="container">
-        <div class="gulu-tabs-nav-item" v-for="(t,index) in titles" :key="index" :class="{selected: t===selected}">{{t}}</div>
+        <div class="gulu-tabs-nav-item" :ref="el => { if (el) navItems[index] = el }" v-for="(t,index) in titles" :key="index" :class="{selected: t===selected}">{{t}}</div>
+        <div class="gulu-tabs-nav-indicator" ref="indicator" />
     </div>
     <div class="gulu-tabs-content">
-        <component :is="item" v-for="(item,index) in defaults" :key="index" />
+        <component class="gulu-tabs-content-item" :class="{selected: item.props.title === selected}" :is="item" v-for="(item,idx) in defaults" :key="idx" />
     </div>
 </div>
 </template>
 
 <script lang="ts">
 import Tab from './Tab.vue'
+import {
+    ref,
+    computed,
+    onMounted
+} from 'vue'
 export default {
     props: {
         selected: {
@@ -18,6 +24,22 @@ export default {
         }
     },
     setup(props, context) {
+        const navItems = ref < HTMLDivElement[] > ([])
+        const indicator = ref < HTMLDivElement > (null)
+        onMounted(() => {
+            // console.log({
+            //     ...navItems.value
+            // })
+            const divs = navItems.value
+            const result = divs.filter(div => div.classList.contains('selected'))[0];
+            //find的兼容性不好
+            // const result = divs.find(div => div.classList.contains('selected'));
+            console.log(divs, result, 'result###')
+            const {
+                width
+            } = result.getBoundingClientRect()
+            indicator.value.style.width = width + 'px'
+        })
         // console.log({
         //     ...context.slots.default()
         // }, 'context')
@@ -34,7 +56,9 @@ export default {
         console.log(titles, 'title%%%')
         return {
             defaults,
-            titles
+            titles,
+            navItems,
+            indicator
         }
     }
 }
@@ -79,6 +103,14 @@ $border-color: #d9d9d9;
 
     &-content {
         padding: 8px 0;
+
+        &-item {
+            display: none;
+
+            &.selected {
+                display: block;
+            }
+        }
     }
 }
 </style>
