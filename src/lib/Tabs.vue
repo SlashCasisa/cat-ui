@@ -1,7 +1,7 @@
 <template>
 <div class="gulu-tabs">
     <div class="gulu-tabs-nav" ref="container">
-        <div class="gulu-tabs-nav-item" :ref="el => { if (el) navItems[index] = el }" v-for="(t,index) in titles" :key="index" :class="{selected: t===selected}">{{t}}</div>
+        <div class="gulu-tabs-nav-item" @click="select(t)" :ref="el => { if (el) navItems[index] = el }" v-for="(t,index) in titles" :key="index" :class="{selected: t===selected}">{{t}}</div>
         <div class="gulu-tabs-nav-indicator" ref="indicator" />
     </div>
     <div class="gulu-tabs-content">
@@ -15,7 +15,8 @@ import Tab from './Tab.vue'
 import {
     ref,
     computed,
-    onMounted
+    onMounted,
+    onUpdated
 } from 'vue'
 export default {
     props: {
@@ -26,10 +27,8 @@ export default {
     setup(props, context) {
         const navItems = ref < HTMLDivElement[] > ([])
         const indicator = ref < HTMLDivElement > (null)
-        onMounted(() => {
-            // console.log({
-            //     ...navItems.value
-            // })
+        const container = ref < HTMLDivElement > (null)
+        const x = () => {
             const divs = navItems.value
             const result = divs.filter(div => div.classList.contains('selected'))[0];
             //find的兼容性不好
@@ -39,7 +38,17 @@ export default {
                 width
             } = result.getBoundingClientRect()
             indicator.value.style.width = width + 'px'
-        })
+            const {
+                left: left1
+            } = container.value.getBoundingClientRect()
+            const {
+                left: left2
+            } = result.getBoundingClientRect()
+            const left = left2 - left1
+            indicator.value.style.left = left + 'px'
+        }
+        onMounted(x)
+        onUpdated(x)
         // console.log({
         //     ...context.slots.default()
         // }, 'context')
@@ -53,12 +62,16 @@ export default {
         const titles = defaults.map((tag) => {
             return tag.props.title
         })
-        console.log(titles, 'title%%%')
+        const select = (title: string) => {
+            context.emit('update:selected', title)
+        }
         return {
             defaults,
             titles,
             navItems,
-            indicator
+            select,
+            indicator,
+            container
         }
     }
 }
