@@ -40,7 +40,8 @@ export default {
         const f2 = () => {}
         const showDialog = () => {
             openDialog({
-                title: h('strong', {}, '标题'),
+                // title: h('strong', {}, '标题'),
+                title: '标题',
                 content: '你好',
                 ok() {
                     console.log('ok')
