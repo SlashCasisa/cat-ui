@@ -15,8 +15,9 @@ import Tab from './Tab.vue'
 import {
     ref,
     computed,
-    onMounted,
-    onUpdated
+    // onMounted,
+    // onUpdated,
+    watchEffect
 } from 'vue'
 export default {
     props: {
@@ -29,11 +30,27 @@ export default {
         // const navItems = ref < HTMLDivElement[] > ([])
         const indicator = ref < HTMLDivElement > (null)
         const container = ref < HTMLDivElement > (null)
-        const x = () => {
-            // const divs = navItems.value
-            // const result = divs.filter(div => div.classList.contains('selected'))[0];
-            //find的兼容性不好
-            // const result = divs.find(div => div.classList.contains('selected'));
+        // const x = () => {
+        //     // const divs = navItems.value
+        //     // const result = divs.filter(div => div.classList.contains('selected'))[0];
+        //     //find的兼容性不好
+        //     // const result = divs.find(div => div.classList.contains('selected'));
+        //     const {
+        //         width
+        //     } = selectedItem.value.getBoundingClientRect()
+        //     indicator.value.style.width = width + 'px'
+        //     const {
+        //         left: left1
+        //     } = container.value.getBoundingClientRect()
+        //     const {
+        //         left: left2
+        //     } = selectedItem.value.getBoundingClientRect()
+        //     const left = left2 - left1
+        //     indicator.value.style.left = left + 'px'
+        // }
+        // onMounted(x)
+        // onUpdated(x)
+        watchEffect(() => {
             const {
                 width
             } = selectedItem.value.getBoundingClientRect()
@@ -46,9 +63,7 @@ export default {
             } = selectedItem.value.getBoundingClientRect()
             const left = left2 - left1
             indicator.value.style.left = left + 'px'
-        }
-        onMounted(x)
-        onUpdated(x)
+        })
         // console.log({
         //     ...context.slots.default()
         // }, 'context')
