@@ -2,7 +2,7 @@
 <div>
     <Topnav />
     <div class="banner">
-        <h1>咕噜UI</h1>
+        <h1>Cat-UI</h1>
         <h2>一个基于vue3.0的UI库</h2>
         <p class="actions">
             <a class="actions-item" href="https://github.com/SlashCasisa/gulu-ui">Github</a>
@@ -23,8 +23,9 @@ export default {
 
 <style lang="scss">
 .banner {
-    background: lightGreen;
+    background: linear-gradient(90deg, rgba(197, 196, 238, 1) 0%, rgba(140, 102, 215, 1) 35%, rgba(122, 83, 202, 1) 100%);
     padding-top: 50px;
+    text-align: center;
 
     .actions {
         display: flex;
