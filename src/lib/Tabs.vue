@@ -5,7 +5,8 @@
         <div class="gulu-tabs-nav-indicator" ref="indicator" />
     </div>
     <div class="gulu-tabs-content">
-        <component class="gulu-tabs-content-item" :class="{selected: item.props.title === selected}" :is="item" v-for="(item,idx) in defaults" :key="idx" />
+        <!--  <component class="gulu-tabs-content-item" :class="{selected: item.props.title === selected}" :is="item" v-for="(item,idx) in defaults" :key="idx" /> -->
+        <component :is="current" :key="current.props.title" />
     </div>
 </div>
 </template>
@@ -76,6 +77,10 @@ export default {
                 throw new Error('Tabs必须是Tab')
             }
         })
+        const current = computed(() => {
+            console.log(defaults, defaults.find(tag => tag.props.title === props.selected))
+            return defaults.find(tag => tag.props.title === props.selected)
+        })
         const titles = defaults.map((tag) => {
             return tag.props.title
         })
@@ -83,6 +88,7 @@ export default {
             context.emit('update:selected', title)
         }
         return {
+            current,
             defaults,
             titles,
             // navItems,
@@ -135,13 +141,13 @@ $border-color: #d9d9d9;
     &-content {
         padding: 8px 0;
 
-        &-item {
-            display: none;
+        // &-item {
+        //     display: none;
 
-            &.selected {
-                display: block;
-            }
-        }
+        //     &.selected {
+        //         display: block;
+        //     }
+        // }
     }
 }
 </style>
