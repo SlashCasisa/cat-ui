@@ -1,12 +1,12 @@
 <template>
 <template v-if="visible">
     <Telepore to="body">
-        <div class="gulu-dialog-overlay" @click="onClickOverlay"></div>
-        <div class="gulu-dialog-wrapper">
-            <div class="gulu-dialog">
+        <div class="cat-dialog-overlay" @click="onClickOverlay"></div>
+        <div class="cat-dialog-wrapper">
+            <div class="cat-dialog">
                 <header>
                     <slot name="title" />
-                    <span class="gulu-dialog-close" @click="close"></span>
+                    <span class="cat-dialog-close" @click="close"></span>
                 </header>
                 <main>
                     <slot name="content" />
@@ -79,7 +79,7 @@ export default {
 <style lang="scss">
 $border-color: #d9d9d9;
 
-.gulu-dialog {
+.cat-dialog {
     background: white;
     border-radius: 4px;
     box-shadow: 0 0 3px fade_out(black, 0.5);

@@ -1,11 +1,11 @@
 <template>
-<div class="gulu-tabs">
-    <div class="gulu-tabs-nav" ref="container">
-        <div class="gulu-tabs-nav-item" @click="select(t)" :ref="el => { if (t===selected) selectedItem = el }" v-for="(t,index) in titles" :key="index" :class="{selected: t===selected}">{{t}}</div>
-        <div class="gulu-tabs-nav-indicator" ref="indicator" />
+<div class="cat-tabs">
+    <div class="cat-tabs-nav" ref="container">
+        <div class="cat-tabs-nav-item" @click="select(t)" :ref="el => { if (t===selected) selectedItem = el }" v-for="(t,index) in titles" :key="index" :class="{selected: t===selected}">{{t}}</div>
+        <div class="cat-tabs-nav-indicator" ref="indicator" />
     </div>
-    <div class="gulu-tabs-content">
-        <!--  <component class="gulu-tabs-content-item" :class="{selected: item.props.title === selected}" :is="item" v-for="(item,idx) in defaults" :key="idx" /> -->
+    <div class="cat-tabs-content">
+        <!--  <component class="cat-tabs-content-item" :class="{selected: item.props.title === selected}" :is="item" v-for="(item,idx) in defaults" :key="idx" /> -->
         <component :is="current" :key="current.props.title" />
     </div>
 </div>
@@ -78,7 +78,6 @@ export default {
             }
         })
         const current = computed(() => {
-            console.log(defaults, defaults.find(tag => tag.props.title === props.selected))
             return defaults.find(tag => tag.props.title === props.selected)
         })
         const titles = defaults.map((tag) => {
@@ -106,7 +105,7 @@ $blue: #40a9ff;
 $color: #333;
 $border-color: #d9d9d9;
 
-.gulu-tabs {
+.cat-tabs {
     &-nav {
         display: flex;
         color: $color;

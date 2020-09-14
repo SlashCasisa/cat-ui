@@ -1,6 +1,6 @@
 <template>
-<button class="gulu-button" :class="classes" :disabled="disabled">
-    <span v-if="loading" class="gulu-loadingIndicator"></span>
+<button class="cat-button" :class="classes" :disabled="disabled">
+    <span v-if="loading" class="cat-loadingIndicator"></span>
     <slot />
 </button>
 </template>
@@ -47,9 +47,9 @@ export default {
         } = props;
         const classes = computed(() => {
             return {
-                [`gulu-theme-${theme}`]: theme,
-                [`gulu-size-${size}`]: size,
-                [`gulu-level-${level}`]: level,
+                [`cat-theme-${theme}`]: theme,
+                [`cat-size-${size}`]: size,
+                [`cat-level-${level}`]: level,
             };
         });
         return {
@@ -71,7 +71,7 @@ $grey: grey;
 
 // lighten($color,$amount)：通过改变颜色的亮度值，让颜色变亮，创建一个新的颜色；
 // darken($color,$amount)：通过改变颜色的亮度值，让颜色变暗，创建一个新的颜色；
-.gulu-button {
+.cat-button {
     box-sizing: border-box;
     height: $h;
     padding: 0 12px;
@@ -105,7 +105,7 @@ $grey: grey;
         border: 0;
     }
 
-    &.gulu-theme-link {
+    &.cat-theme-link {
         border-color: transparent;
         box-shadow: none;
         color: $blue;
@@ -116,7 +116,7 @@ $grey: grey;
         }
     }
 
-    &.gulu-theme-text {
+    &.cat-theme-text {
         border-color: transparent;
         box-shadow: none;
         color: inherit;
@@ -127,20 +127,20 @@ $grey: grey;
         }
     }
 
-    &.gulu-size-big {
+    &.cat-size-big {
         font-size: 24px;
         height: 48px;
         padding: 0 16px;
     }
 
-    &.gulu-size-small {
+    &.cat-size-small {
         font-size: 12px;
         height: 20px;
         padding: 0 4px;
     }
 
-    &.gulu-theme-button {
-        &.gulu-level-main {
+    &.cat-theme-button {
+        &.cat-level-main {
             background: $blue;
             color: white;
             border-color: $blue;
@@ -152,7 +152,7 @@ $grey: grey;
             }
         }
 
-        &.gulu-level-danger {
+        &.cat-level-danger {
             background: $red;
             border-color: $red;
             color: white;
@@ -165,8 +165,8 @@ $grey: grey;
         }
     }
 
-    &.gulu-theme-link {
-        &.gulu-level-danger {
+    &.cat-theme-link {
+        &.cat-level-danger {
             color: $red;
 
             &:hover,
@@ -176,8 +176,8 @@ $grey: grey;
         }
     }
 
-    &.gulu-theme-text {
-        &.gulu-level-main {
+    &.cat-theme-text {
+        &.cat-level-main {
             color: $blue;
 
             &:hover,
@@ -186,7 +186,7 @@ $grey: grey;
             }
         }
 
-        &.gulu-level-danger {
+        &.cat-level-danger {
             color: $red;
 
             &:hover,
@@ -196,7 +196,7 @@ $grey: grey;
         }
     }
 
-    &.gulu-theme-button {
+    &.cat-theme-button {
         &[disabled] {
             cursor: not-allowed;
             color: $grey;
@@ -207,15 +207,15 @@ $grey: grey;
         }
     }
 
-    &.gulu-theme-link,
-    &.gulu-theme-text {
+    &.cat-theme-link,
+    &.cat-theme-text {
         &[disabled] {
             cursor: not-allowed;
             color: $grey;
         }
     }
 
-    >.gulu-loadingIndicator {
+    >.cat-loadingIndicator {
         width: 14px;
         height: 14px;
         display: inline-block;
@@ -224,11 +224,11 @@ $grey: grey;
         border-color: $blue $blue $blue transparent;
         border-style: solid;
         border-width: 2px;
-        animation: gulu-spin 1s infinite linear;
+        animation: cat-spin 1s infinite linear;
     }
 }
 
-@keyframes gulu-spin {
+@keyframes cat-spin {
     0% {
         transform: rotate(0deg)
     }
