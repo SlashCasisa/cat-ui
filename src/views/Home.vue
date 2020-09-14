@@ -34,10 +34,12 @@ export default {
 
 <style lang="scss">
 .banner {
-    background: linear-gradient(90deg, rgba(197, 196, 238, 1) 0%, rgba(140, 102, 215, 1) 35%, rgba(122, 83, 202, 1) 100%);
+    background: linear-gradient(90deg, rgba(197, 196, 238, 1) 0%, rgba(140, 102, 215, 0.7) 35%, rgba(122, 83, 202, 0.7) 100%);
     padding-top: 50px;
     text-align: center;
     color: rgb(92, 44, 187);
+    clip-path: ellipse(80% 60% at 50% 40%);
+    padding: 20vh 0px;
 
     .actions {
         display: flex;
@@ -48,8 +50,9 @@ export default {
             background: rgb(122, 83, 202);
             color: #fff;
             padding: 5px 10px;
-            margin-right: 5px;
+            margin-right: 20px;
             border-radius: 5px;
+            width: 110px;
 
             &:hover {
                 background: rgb(122, 83, 202);

@@ -33,7 +33,8 @@ export default {
 <style lang="scss">
 .topnav {
     // border-bottom: 1px solid #ccc;
-    background: linear-gradient(90deg, rgba(197, 196, 238, 1) 0%, rgba(140, 102, 215, 1) 35%, rgba(122, 83, 202, 1) 100%);
+
+    background: linear-gradient(90deg, rgba(197, 196, 238, 0) 0%, rgba(140, 102, 215, 0) 35%, rgba(122, 83, 202, 0) 100%);
     padding: 16px;
     display: flex;
     justify-content: flex-start;
@@ -41,14 +42,14 @@ export default {
     margin-bottom: 10px;
     position: fixed;
     width: 100%;
-    color: rgb(122, 83, 202);
+    color: rgb(92, 44, 187);
     z-index: 100;
     // height: 25px;
 
     .logo {
         margin-right: auto;
         font-size: 16px;
-        fill: rgb(122, 83, 202);
+        fill: rgb(92, 44, 187);
 
         >svg {
             width: 18px;
@@ -65,7 +66,7 @@ export default {
         flex-grow: 2;
         text-align: right;
         justify-content: flex-end;
-        color: #C3C1ED;
+        color: rgb(92, 44, 187);
 
         .menu-item {
             padding-right: 20px;
