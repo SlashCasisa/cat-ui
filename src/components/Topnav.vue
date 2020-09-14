@@ -1,10 +1,13 @@
 <template>
 <div class="topnav">
     <div class="toggleAside" @click="toggleComponentMenu" />
-    <div class="logo">Logo</div>
+    <div class="logo">
+        <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-cat1"></use>
+        </svg>
+    </div>
     <div class="menu">
-        <div class="menu-item">menu1</div>
-        <div class="menu-item">menu2</div>
+        <div class="menu-item">文档</div>
     </div>
 </div>
 </template>
@@ -38,11 +41,19 @@ export default {
     margin-bottom: 10px;
     position: fixed;
     width: 100%;
+    color: rgb(122, 83, 202);
     z-index: 100;
     // height: 25px;
 
     .logo {
         margin-right: auto;
+        font-size: 16px;
+        fill: rgb(122, 83, 202);
+
+        >svg {
+            width: 18px;
+            height: 18px;
+        }
 
         &:hover {
             cursor: pointer;
@@ -54,6 +65,7 @@ export default {
         flex-grow: 2;
         text-align: right;
         justify-content: flex-end;
+        color: #C3C1ED;
 
         .menu-item {
             padding-right: 20px;

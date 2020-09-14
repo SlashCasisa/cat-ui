@@ -10,10 +10,10 @@
   a {
     text-decoration: none;
     color: inherit;
-    &:hover {
-      border-bottom: 1px solid;
-      cursor: pointer;
-    }
+  }
+  a:hover {
+    /* border-bottom: 1px solid; */
+    cursor: pointer;
   }
   h1,
   h2,
@@ -26,6 +26,8 @@
   
   body {
     font-size: 16px;
+    color: #101211;
+    line-height: 1.5;
     // 为什么这样写 font-family
     // 答案见 https://github.com/zenozeng/fonts.css/
     font-family: -apple-system, "Noto Sans", "Helvetica Neue", Helvetica,
