@@ -54,7 +54,7 @@ export default {
     text-align: center;
     color: rgb(92, 44, 187);
     clip-path: ellipse(80% 60% at 50% 40%);
-    padding: 20vh 0px;
+    padding: 10vh 0px;
 
     .actions {
         display: flex;

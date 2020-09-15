@@ -1,10 +1,16 @@
 <template>
 <div class="topnav">
-    <div class="toggleAside" @click="toggleComponentMenu" />
+    <div v-if="toggleMenuButtonVisible" class="toggleAside" @click="toggleComponentMenu">
+        <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-menu"></use>
+        </svg>
+    </div>
     <div class="logo">
+    <router-link to="/">
         <svg class="icon" aria-hidden="true">
             <use xlink:href="#icon-cat1"></use>
         </svg>
+    </router-link>
     </div>
     <div class="menu">
         <div class="menu-item">文档</div>
@@ -18,6 +24,12 @@ import {
     Ref
 } from 'vue'
 export default {
+    props: {
+        toggleMenuButtonVisible: {
+            type: Boolean,
+            default: false
+        }
+    },
     setup() {
         const menuVisible = inject < Ref < boolean >> ('refmenuVisible')
         const toggleComponentMenu = () => {
@@ -48,10 +60,12 @@ export default {
 
     .logo {
         margin-right: auto;
-        font-size: 16px;
-        fill: rgb(92, 44, 187);
-
-        >svg {
+        
+        a{
+            font-size: 16px;
+            fill: rgb(92, 44, 187);
+        }
+        svg {
             width: 18px;
             height: 18px;
         }
@@ -76,9 +90,16 @@ export default {
     .toggleAside {
         width: 24px;
         height: 24px;
-        background: red;
         margin-right: 10px;
         display: none;
+        // background: fade-out(black, 0.9);
+
+        >svg {
+            fill: rgb(122, 83, 202);
+            width: 18px;
+            height: 18px;
+        }
+
     }
 
     @media(max-width:500px) {
