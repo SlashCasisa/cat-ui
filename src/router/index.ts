@@ -3,6 +3,7 @@ import Doc from '../views/Doc.vue'
 import DocDemo from '../components/DocDemo.vue'
 import SwitchDemo from '../components/SwitchDemo.vue'
 import ButtonDemo from '../components/ButtonDemo.vue'
+import ButtonDemo1 from '../components/ButtonDemo1.vue'
 import DialogDemo from '../components/DialogDemo.vue'
 import TabsDemo from '../components/TabsDemo.vue'
 import { createWebHashHistory, createRouter } from 'vue-router'
@@ -20,6 +21,9 @@ const router = createRouter({
     },{
       path:'/switch',
       component: SwitchDemo
+    },{
+      path:'/button1',
+      component: ButtonDemo1
     },{
       path:'/button',
       component: ButtonDemo
