@@ -45,8 +45,6 @@ export default {
 <style lang="scss">
 .topnav {
     // border-bottom: 1px solid #ccc;
-
-    background: linear-gradient(90deg, rgba(197, 196, 238, 0) 0%, rgba(140, 102, 215, 0) 35%, rgba(122, 83, 202, 0) 100%);
     padding: 16px;
     display: flex;
     justify-content: flex-start;

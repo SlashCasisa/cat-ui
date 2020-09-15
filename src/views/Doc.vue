@@ -60,7 +60,7 @@ export default {
         flex-grow: 1;
         padding-top: 60px;
         padding-left: 156px;
-
+         
         @media (max-width: 500px) {
             padding-left: 0;
         }
@@ -82,7 +82,7 @@ export default {
 }
 
 aside {
-    background: lightblue;
+    background: linear-gradient(0deg, rgba(122, 83, 202, 1) 0%, rgba(140, 102, 215, 1) 35%,  rgba(197, 196, 238, 1) 100%);
     width: 150px;
     padding: 16px;
     position: fixed;
@@ -90,7 +90,7 @@ aside {
     left: 0;
     padding-top: 70px;
     height: 100%;
-
+    color: #fff;
     >h2 {
         margin-bottom: 4px;
     }
