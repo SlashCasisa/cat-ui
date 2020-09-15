@@ -9,17 +9,32 @@
             <router-link class="actions-item" to="/doc">开始</router-link>
         </p>
     </div>
-    <div class="main">
-        <svg class="icon" aria-hidden="true">
-            <use xlink:href="#icon-light"></use>
-        </svg>
-        <svg class="icon" aria-hidden="true">
-            <use xlink:href="#icon-Vue"></use>
-        </svg>
-        <svg class="icon" aria-hidden="true">
-            <use xlink:href="#icon-typescript"></use>
-        </svg>
+    <div class="features">
+        <ul class="features-list">
+            <li class="features-item">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-Vue"></use>
+                </svg>
+                <h3>基于 Vue 3</h3>
+                <p>使用了 Vue 3 Composition API</p>
+            </li>
+            <li class="features-item">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-typescript"></use>
+                </svg>
+                <h3>基于 TypeScript </h3>
+                <p>源代码采用 TypeScript 语法</p>
+            </li>
+            <li class="features-item">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-light"></use>
+                </svg>
+                <h3>推荐使用</h3>
+                <p>每个组件的样式好看、代码易读、上手容易</p>
+            </li>
+        </ul>
     </div>
+
 </div>
 </template>
 
@@ -59,12 +74,50 @@ export default {
             }
         }
     }
+}
 
-    .main {
+.features {
+    margin: 64px auto;
+    width: 400px;
+
+    @media (min-width: 800px) {
+        width: 800px;
+    }
+
+    @media (min-width: 1200px) {
+        width: 1200px;
+    }
+
+    .features-list {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .features-item {
+        width: 400px;
+        margin: 16px 0;
+        display: grid;
+        justify-content: start;
+        align-content: space-between;
+        grid-template-areas: "icon title""icon text";
+        grid-template-columns: 80px auto;
+        grid-template-rows: 1fr auto;
+
         >svg {
+            grid-area: icon;
             width: 64px;
             height: 64px;
         }
+
+        >h3 {
+            grid-area: title;
+            font-size: 28px;
+        }
+
+        >p {
+            grid-area: text;
+        }
     }
+
 }
 </style>
