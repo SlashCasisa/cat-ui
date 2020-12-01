@@ -5,6 +5,7 @@ import './index.css'//重置样式
 import './assets/svg.js'
 // import './assets/index.css'
 import router from './router/index'
+import 'github-markdown-css'
 const app = createApp(App)
 app.use(router)
 app.mount('#app')
