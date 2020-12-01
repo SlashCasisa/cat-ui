@@ -1,5 +1,6 @@
 <template>
 <!--
+F1:
   <article class="markdown-body">
     <h1>开始使用</h1>
     <p>请先<a href="#/install">安装本组件库</a></p>
@@ -26,8 +27,14 @@ export default {
 </code></pre>
   </article>
   -->
+  <!--
+  F2:
   <article class="markdown-body" v-html="md"/>
+    -->
+  <markdown path="../markdown/get-started.md" />
 </template>
+<!--
+F2:
 <script>
 import md from '../markdown/get-started.md'
 export default {
@@ -38,3 +45,4 @@ export default {
   }
 }
 </script>
+-->
