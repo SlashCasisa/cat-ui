@@ -62,6 +62,7 @@ export default {
 </script>
 
 <style lang="scss">
+
 .layout {
     display: flex;
     flex-direction: column;
@@ -91,28 +92,35 @@ export default {
 
     >main {
         flex-grow: 1;
-        padding: 16px;
+        padding: 16px 16px 16px 50px;
         background: white;
     }
 }
 
 aside {
     background: linear-gradient(0deg, rgba(122, 83, 202, 1) 0%, rgba(140, 102, 215, 1) 35%,  rgba(197, 196, 238, 1) 100%);
-    width: 150px;
-    padding: 16px;
+    width: 180px;
+    padding: 70px 0px;
     position: fixed;
     top: 0;
     left: 0;
-    padding-top: 70px;
     height: 100%;
     color: #fff;
     >h2 {
         margin-bottom: 4px;
+        padding:0 16px;
     }
 
     >ol {
         >li {
-            padding: 4px 0;
+            >a{
+                display: block;
+                padding: 4px 16px;
+            }
+            .router-link-active {
+                background: white;
+                color: #000;
+            }
         }
     }
 }
