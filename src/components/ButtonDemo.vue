@@ -1,5 +1,11 @@
 <template>
 <div>Button 示例</div>
+<Demo :component="Button1Demo"/>
+<Demo :component="Button2Demo"/>
+<Demo :component="Button3Demo"/>
+<Demo :component="Button4Demo"/>
+<Demo :component="Button5Demo"/>
+<!--
 <h1>示例1</h1>
 <div>
     <Button @click="onClick">你好</Button>
@@ -54,20 +60,33 @@
     <Button loading>加载中</Button>
     <Button>加载完毕</Button>
 </div>
+-->
 </template>
 
 <script lang="ts">
-import Button from "../lib/Button.vue"
+// import Button from "../lib/Button.vue"
+import Button1Demo from './Button1.demo.vue'
+import Button2Demo from './Button2.demo.vue'
+import Button3Demo from './Button3.demo.vue'
+import Button4Demo from './Button4.demo.vue'
+import Button5Demo from './Button5.demo.vue'
+import Demo from './Demo.vue'
 export default {
     components: {
-        Button
+        // Button,
+        Demo
     },
     setup() {
         const onClick = () => {
             console.log('click button')
         }
         return {
-            onClick
+            onClick,
+            Button1Demo,
+            Button2Demo,
+            Button3Demo,
+            Button4Demo,
+            Button5Demo
         }
 
     }
