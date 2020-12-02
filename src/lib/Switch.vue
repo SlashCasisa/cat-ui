@@ -1,5 +1,5 @@
 <template>
-<button class="cat-switch" :class="{'cat-checked':value}" @click="toggle"><span></span></button>
+<button class="cat-switch" :class="[{'cat-checked':value},{'cat-checked-disabled':disabled}]" @click="toggle" ><span></span></button>
 <div>{{value}}</div>
 </template>
 
@@ -9,12 +9,15 @@ import {
 } from 'vue'
 export default {
     props: {
-        value: Boolean
+        value: Boolean,
+        disabled: Boolean
     },
     setup(props, context) {
         const toggle = () => {
             // props.value = !props.value
-            context.emit('update:value', !props.value)
+            if(!props.disabled){
+                context.emit('update:value', !props.value)
+            }
         }
         return {
             toggle
@@ -44,16 +47,23 @@ $h2: $h - 4px;
         background: #fff;
         border-radius: $h2/2;
         transition: left 250ms;
+        cursor: pointer;
     }
 
     &.cat-checked {
         background: #1890ff;
+        cursor: pointer;
 
         >span {
             left: calc(100% - 20px);
         }
     }
-
+    &.cat-checked-disabled{
+        cursor: not-allowed;
+        >span{
+            cursor: not-allowed;
+        }
+    }
     &:focus {
         outline: none;
     }
@@ -62,12 +72,23 @@ $h2: $h - 4px;
         >span {
             width: $h2 + 4px;
         }
+        &.cat-checked-disabled{
+            >span{
+                width: $h2;
+            }
+        }
     }
 
     &.cat-checked:active {
         >span {
             width: $h2 + 4px;
             margin-left: -4px;
+        }
+        &.cat-checked-disabled{
+            >span{
+                width: $h2;
+                margin-left: 0px;
+            }
         }
     }
 }
