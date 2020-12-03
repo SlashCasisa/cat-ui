@@ -14,14 +14,14 @@ import Button from "../lib/Button.vue";
 import { ref } from "vue";
 export default {
   components: {
-    Button,
+    Button
   },
   setup() {
     const onClick = () => {
       console.log("click button");
     };
     return {
-      onClick,
+      onClick
     };
   },
 };
