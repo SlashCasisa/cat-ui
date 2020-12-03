@@ -1,5 +1,10 @@
 <template>
 <div>Button 按钮</div>
+<Demo :component="ButtonDemo1"/>
+<Demo :component="ButtonDemo2"/>
+<Demo :component="ButtonDemo3"/>
+<Demo :component="ButtonDemo4"/>
+<!--
 <h1>基础用法</h1>
 <div class="button-item">
     <Button @click="onClick">默认按钮</Button>
@@ -32,67 +37,43 @@
         <Button>默认按钮</Button>
         <Button size="small">小型按钮</Button>
     </div>
-    <!--
-    <div>
-        <Button type="link" size="big">大大大</Button>
-        <Button type="link">普普通</Button>
-        <Button size="small" type="link">小小小</Button>
-    </div>
-    <div>
-        <Button size="big">大大大</Button>
-        <Button>普普通</Button>
-        <Button size="small">小小小</Button>
-    </div>
-    -->
 </div>
-<!--
-<h1>示例3</h1>
-<div>
-    <dir>
-        <Button level="main">主要按钮</Button>
-        <Button>普通按钮</Button>
-        <Button level="danger">危险按钮</Button>
-    </dir>
-    <dir>
-        <Button type="link" level="main">主要链接按钮</Button>
-        <Button type="link">普通链接按钮</Button>
-        <Button type="link" level="danger">危险链接按钮</Button>
-    </dir>
-    <dir>
-        <Button level="main">主要文字按钮</Button>
-        <Button >普通文字按钮</Button>
-        <Button level="danger">危险文字按钮</Button>
-    </dir>
-</div>
--->
 
 <h1>加载中</h1>
 <div>
     <Button :loading="true" type="primary">加载中</Button>
-    <!-- <Button>加载完毕</Button> -->
+     <Button>加载完毕</Button> 
+   
 </div>
-
+ -->
 </template>
 
 <script lang="ts">
-import Button from "../lib/Button1.vue"
+// import Button from "../lib/Button1.vue"
+import ButtonDemo1 from './Button.demo1.vue'
+import ButtonDemo2 from './Button.demo2.vue'
+import ButtonDemo3 from './Button.demo3.vue'
+import ButtonDemo4 from './Button.demo4.vue'
+import Demo from './Demo.vue'
 export default {
     components: {
-        Button
+        Demo
+        // Button
     },
     setup() {
-        const onClick = () => {
-            console.log('click button')
-        }
+        // const onClick = () => {
+        //     console.log('click button')
+        // }
+        // return {
+        //     onClick
+        // }
         return {
-            onClick
+            ButtonDemo1,
+            ButtonDemo2,
+            ButtonDemo3,
+            ButtonDemo4,
         }
-
     }
 }
 </script>
-<style>
-.button-item{
-    padding: 10px 0;
-}
-</style>
+

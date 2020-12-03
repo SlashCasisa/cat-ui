@@ -20,11 +20,13 @@
                 <li>
                     <router-link to="/switch">switch组件</router-link>
                 </li>
+                <!--
                 <li>
                     <router-link to="/button">button组件</router-link>
                 </li>
+                -->
                 <li>
-                    <router-link to="/button1">button1组件</router-link>
+                    <router-link to="/button1">button组件</router-link>
                 </li>
                 <li>
                     <router-link to="/dialog">dialog组件</router-link>
