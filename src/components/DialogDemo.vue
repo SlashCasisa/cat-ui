@@ -1,62 +1,21 @@
 <template>
-<!-- <div style="position:relative;z-index:1"> -->
 <div>Dialog 示例</div>
-<h1>示例1</h1>
-<Button @click="toggle">toggle</Button>
-<Dialog v-model:visible="x" :closeOnClickOverlay="false" :ok="f1" :cancel="f2" title="netlify">
-    <template v-slot:content> <strong>nice to meet you</strong></template>
-    <template v-slot:title> <strong>netlify</strong></template>
-</Dialog>
-<!--</div>-->
-<h1>示例2</h1>
-<Button @click="showDialog">show</Button>
+<Demo :component="Dialog1Demo"/>
+<Demo :component="Dialog2Demo"/>
 </template>
 
 <script lang="ts">
-import Dialog from '../lib/Dialog.vue'
-import Button from '../lib/Button.vue'
-import {
-    ref,
-    h
-} from 'vue'
-import {
-    openDialog
-} from '../lib/openDialog'
+import Dialog1Demo from './Dialog1.demo.vue'
+import Dialog2Demo from './Dialog2.demo.vue'
+import Demo from './Demo.vue'
 export default {
     components: {
-        Dialog,
-        Button
+       Demo
     },
     setup() {
-        const x = ref(false)
-        const toggle = () => {
-            x.value = !x.value;
-        }
-        const f1 = () => {
-
-            console.log('ok')
-            // return false
-        }
-        const f2 = () => {}
-        const showDialog = () => {
-            openDialog({
-                // title: h('strong', {}, '标题'),
-                title: '标题',
-                content: '你好',
-                ok() {
-                    console.log('ok')
-                },
-                cancel() {
-                    console.log('cancel')
-                }
-            })
-        }
         return {
-            x,
-            toggle,
-            f1,
-            f2,
-            showDialog
+            Dialog1Demo,
+            Dialog2Demo
         }
     }
 }
