@@ -102,6 +102,7 @@ export default {
 aside {
     background: linear-gradient(0deg, rgba(122, 83, 202, 1) 0%, rgba(140, 102, 215, 1) 35%,  rgba(197, 196, 238, 1) 100%);
     width: 180px;
+    z-index: 1;
     padding: 70px 0px;
     position: fixed;
     top: 0;
