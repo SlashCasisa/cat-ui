@@ -7,7 +7,7 @@ F1:
 
     <p>然后在你的代码中写入下面的代码</p>
 
-    <pre><code>import {Button, Tabs, Switch, Dialog} from "king-ui"</code></pre>
+    <pre><code>import {Button, Tabs, Switch, Dialog} from "cat-ui"</code></pre>
     就可以使用我提供的组件了。
 
     <h2>Vue 单文件组件</h2>
@@ -19,7 +19,7 @@ F1:
   &lt;/div&gt;
 &lt;/template&gt;
 &lt;script&gt;
-import {Button, Tabs, Switch, Dialog} from "king-ui"
+import {Button, Tabs, Switch, Dialog} from "cat-ui"
 export default {
   components: {Button}
 }
