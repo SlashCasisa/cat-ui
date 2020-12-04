@@ -1,78 +1,103 @@
 <template>
-<template v-if="visible">
+  <template v-if="visible">
     <Telepore to="body">
-        <div class="cat-dialog-overlay" @click="onClickOverlay"></div>
-        <div class="cat-dialog-wrapper">
-            <div class="cat-dialog">
-                <header>
-                    <slot name="title" />
-                    <span class="cat-dialog-close" @click="close"></span>
-                </header>
-                <main>
-                    <slot name="content" />
-                </main>
-                <footer>
-                    <Button @click="ok">OK</Button>
-                    <Button @click="cancel">Cancel</Button>
-                </footer>
-            </div>
+      <div class="cat-dialog-overlay" @click="onClickOverlay"></div>
+      <div class="cat-dialog-wrapper">
+        <div class="cat-dialog">
+          <header>
+            <slot name="title"></slot>
+            <span class="cat-dialog-close" @click="close"></span>
+          </header>
+          <main>
+            <slot name="content"></slot>
+          </main>
+          <footer>
+            <Button @click="ok">OK</Button>
+            <Button @click="cancel">Cancel</Button>
+          </footer>
         </div>
+      </div>
     </Telepore>
-</template>
+  </template>
 </template>
 
-<script lang="ts">
-import Button from './Button.vue'
+<script lang="ts" setup="props,context">
+import { SetupContext } from 'vue';
+import Button from "./Button.vue";
+declare const props: {
+  visible: boolean;
+  closeOnClickOverlay: boolean; 
+  ok: () => boolean; 
+  cancel: () => void
+}
+declare const context: SetupContext
 export default {
-    components: {
-        Button
+  components: {
+    Button,
+  },
+  props: {
+    // title: {
+    //     type: String,
+    //     defalut: '提示'
+    // },
+    visible: {
+      type: Boolean,
+      defalut: false,
     },
-    props: {
-        // title: {
-        //     type: String,
-        //     defalut: '提示'
-        // },
-        visible: {
-            type: Boolean,
-            defalut: false
-        },
-        closeOnClickOverlay: {
-            type: Boolean,
-            default: true
-        },
-        ok: {
-            type: Function
-        },
-        cancel: {
-            type: Function
-        }
+    closeOnClickOverlay: {
+      type: Boolean,
+      default: true,
     },
-    setup(props, context) {
-        const close = () => {
-            context.emit('update:visible', false)
-        }
-        const onClickOverlay = () => {
-            if (props.closeOnClickOverlay) {
-                close()
-            }
-        }
-        const ok = () => {
-            // props.ok && props.ok() 实际等于 props.ok?.()
-            if (props.ok?.() !== false) {
-                close()
-            }
-        }
-        const cancel = () => {
-            props.cancel?.() //执行传进来cancel的函数
-            close()
-        }
-        return {
-            close,
-            onClickOverlay,
-            ok,
-            cancel
-        }
-    }
+    ok: {
+      type: Function,
+    },
+    cancel: {
+      type: Function,
+    },
+  },
+  // setup(props, context) {
+  //   const close = () => {
+  //     context.emit("update:visible", false);
+  //   };
+  //   const onClickOverlay = () => {
+  //     if (props.closeOnClickOverlay) {
+  //       close();
+  //     }
+  //   };
+  //   const ok = () => {
+  //     // props.ok && props.ok() 实际等于 props.ok?.()
+  //     if (props.ok?.() !== false) {
+  //       close();
+  //     }
+  //   };
+  //   const cancel = () => {
+  //     props.cancel?.(); //执行传进来cancel的函数
+  //     close();
+  //   };
+  //   return {
+  //     close,
+  //     onClickOverlay,
+  //     ok,
+  //     cancel,
+  //   };
+  // },
+};
+export const close = () => {
+  context.emit('update:visible', false)
+}
+export const onClickOverlay = () => {
+  if (props.closeOnClickOverlay) {
+    close()
+  }
+}
+export const onClickOk = () => {
+  if (props.ok?.() !== false) {
+    close()
+  }
+}
+export const onClickCancel = () => {
+  props.cancel?.()
+  close()
 }
 </script>
 
@@ -80,74 +105,74 @@ export default {
 $border-color: #d9d9d9;
 
 .cat-dialog {
-    background: white;
-    border-radius: 4px;
-    box-shadow: 0 0 3px fade_out(black, 0.5);
-    min-width: 15em;
-    max-width: 90%;
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 0 3px fade_out(black, 0.5);
+  min-width: 15em;
+  max-width: 90%;
 
-    &-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: fade_out(black, 0.5);
-        z-index: 10;
+  &-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: fade_out(black, 0.5);
+    z-index: 10;
+  }
+
+  &-wrapper {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 11;
+  }
+
+  > header {
+    padding: 12px 16px;
+    border-bottom: 1px solid $border-color;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 20px;
+  }
+
+  > main {
+    padding: 12px 16px;
+  }
+
+  > footer {
+    border-top: 1px solid $border-color;
+    padding: 12px 16px;
+    text-align: right;
+  }
+
+  &-close {
+    position: relative;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      height: 1px;
+      background: black;
+      width: 100%;
+      top: 50%;
+      left: 50%;
     }
 
-    &-wrapper {
-        position: fixed;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 11;
+    &::before {
+      transform: translate(-50%, -50%) rotate(-45deg);
     }
 
-    >header {
-        padding: 12px 16px;
-        border-bottom: 1px solid $border-color;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        font-size: 20px;
+    &::after {
+      transform: translate(-50%, -50%) rotate(45deg);
     }
-
-    >main {
-        padding: 12px 16px;
-    }
-
-    >footer {
-        border-top: 1px solid $border-color;
-        padding: 12px 16px;
-        text-align: right;
-    }
-
-    &-close {
-        position: relative;
-        display: inline-block;
-        width: 16px;
-        height: 16px;
-        cursor: pointer;
-
-        &::before,
-        &::after {
-            content: '';
-            position: absolute;
-            height: 1px;
-            background: black;
-            width: 100%;
-            top: 50%;
-            left: 50%;
-        }
-
-        &::before {
-            transform: translate(-50%, -50%) rotate(-45deg);
-        }
-
-        &::after {
-            transform: translate(-50%, -50%) rotate(45deg);
-        }
-    }
+  }
 }
 </style>
